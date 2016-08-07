@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Code Editor Service</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+
+
+
+
+
+
+
+<style type="text/css" media="screen">
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+main {
+  flex: 1 0 auto;
+}
+
+/* editor */
+.area-editor {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #000;
+}
+.area-editor > div {
+  position:relative;
+  /*height: 300px;*/
+  display: flex;
+  min-height: 90vh;
+  flex-direction: column;
+}
+#editor { 
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+
+
+
+  <nav class="light-blue lighten-4" role="navigation">
+    <div class="nav-wrapper"><a id="logo-container" href="/" class="brand-logo">Code</a>
+      
+      <!-- <ul class="right hide-on-med-and-down">
+        <li>
+          <select id="doc" size="1">
+            <optgroup label="Mode Examples"><option value="JavaScript">JavaScript</option><option value="ABAP">ABAP</option><option value="ABC">ABC</option><option value="ActionScript">ActionScript</option><option value="ADA">ADA</option><option value="Apache Conf">Apache Conf</option><option value="AsciiDoc">AsciiDoc</option><option value="Assembly x86">Assembly x86</option><option value="AutoHotKey">AutoHotKey</option><option value="BatchFile">BatchFile</option><option value="C and C++">C and C++</option><option value="C#">C#</option><option value="C9 Search Results">C9 Search Results</option><option value="Cirru">Cirru</option><option value="Clojure">Clojure</option><option value="Cobol">Cobol</option><option value="CoffeeScript">CoffeeScript</option><option value="ColdFusion">ColdFusion</option><option value="CSS">CSS</option><option value="Curly">Curly</option><option value="D">D</option><option value="Dart">Dart</option><option value="Diff">Diff</option><option value="Django">Django</option><option value="Dockerfile">Dockerfile</option><option value="Dot">Dot</option><option value="Dummy">Dummy</option><option value="DummySyntax">DummySyntax</option><option value="Eiffel">Eiffel</option><option value="EJS">EJS</option><option value="Elixir">Elixir</option><option value="Elm">Elm</option><option value="Erlang">Erlang</option><option value="Forth">Forth</option><option value="FreeMarker">FreeMarker</option><option value="Gcode">Gcode</option><option value="Gherkin">Gherkin</option><option value="Gitignore">Gitignore</option><option value="Glsl">Glsl</option><option value="Go">Go</option><option value="Gobstones">Gobstones</option><option value="Groovy">Groovy</option><option value="HAML">HAML</option><option value="Handlebars">Handlebars</option><option value="Haskell">Haskell</option><option value="haXe">haXe</option><option value="HTML">HTML</option><option value="HTML (Elixir)">HTML (Elixir)</option><option value="HTML (Ruby)">HTML (Ruby)</option><option value="INI">INI</option><option value="Io">Io</option><option value="Jack">Jack</option><option value="Jade">Jade</option><option value="Java">Java</option><option value="JSON">JSON</option><option value="JSONiq">JSONiq</option><option value="JSP">JSP</option><option value="JSX">JSX</option><option value="Julia">Julia</option><option value="LaTeX">LaTeX</option><option value="Lean">Lean</option><option value="LESS">LESS</option><option value="Liquid">Liquid</option><option value="Lisp">Lisp</option><option value="LiveScript">LiveScript</option><option value="LogiQL">LogiQL</option><option value="LSL">LSL</option><option value="Lua">Lua</option><option value="LuaPage">LuaPage</option><option value="Lucene">Lucene</option><option value="Makefile">Makefile</option><option value="Markdown">Markdown</option><option value="Mask">Mask</option><option value="MATLAB">MATLAB</option><option value="Maze">Maze</option><option value="MEL">MEL</option><option value="MUSHCode">MUSHCode</option><option value="MySQL">MySQL</option><option value="Nix">Nix</option><option value="Nix">Nix</option><option value="NSIS">NSIS</option><option value="Objective-C">Objective-C</option><option value="OCaml">OCaml</option><option value="Pascal">Pascal</option><option value="Perl">Perl</option><option value="pgSQL">pgSQL</option><option value="PHP">PHP</option><option value="Plain Text">Plain Text</option><option value="Powershell">Powershell</option><option value="Praat">Praat</option><option value="Prolog">Prolog</option><option value="Properties">Properties</option><option value="Protobuf">Protobuf</option><option value="Python">Python</option><option value="R">R</option><option value="Razor">Razor</option><option value="RDoc">RDoc</option><option value="RHTML">RHTML</option><option value="RST">RST</option><option value="Ruby">Ruby</option><option value="Rust">Rust</option><option value="SASS">SASS</option><option value="SCAD">SCAD</option><option value="Scala">Scala</option><option value="Scheme">Scheme</option><option value="SCSS">SCSS</option><option value="SH">SH</option><option value="SJS">SJS</option><option value="Smarty">Smarty</option><option value="snippets">snippets</option><option value="Soy Template">Soy Template</option><option value="Space">Space</option><option value="SQL">SQL</option><option value="SQLServer">SQLServer</option><option value="Stylus">Stylus</option><option value="SVG">SVG</option><option value="Swift">Swift</option><option value="Tcl">Tcl</option><option value="Tex">Tex</option><option value="Text">Text</option><option value="Textile">Textile</option><option value="Toml">Toml</option><option value="Twig">Twig</option><option value="Typescript">Typescript</option><option value="Vala">Vala</option><option value="VBScript">VBScript</option><option value="Velocity">Velocity</option><option value="Verilog">Verilog</option><option value="VHDL">VHDL</option><option value="Wollok">Wollok</option><option value="XML">XML</option><option value="XQuery">XQuery</option><option value="YAML">YAML</option></optgroup><optgroup label="Huge documents"><option value="src/ace.js">src/ace.js</option><option value="src-min/ace.js">src-min/ace.js</option></optgroup><optgroup label="own source"></optgroup>
+          </select>
+        </li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li>
+          <a href="/">aaa</a>
+        </li>
+      </ul>
+      
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a> -->
+      
+    </div>
+  </nav>
+
+
+
+  <main>
+   <div class="section">
+     <!--   Icon Section   -->
+     <div class="area-editor">
+       <div>
+
+
+<div id="editor">
+ function foo(items) {
+   var x = "All this is syntax highlighted";
+   return x;
+ }
+</div>
+
+      </div>
+    </div>
+    <!--/ area-editor  -->
+   </div>
+   <!--/ section -->
+  </main>
+
+
+  <footer class="page-footer light-blue lighten-5">
+    <div class="footer-copyright">
+      <div style="padding-left: 10px;">Made by Tokyo5963</div>
+    </div>
+  </footer>
+
+
+
+
+
+  <!-- Modal Trigger -->
+  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>Editor Setting</h4>
+      
+      <select id="doc" size="1">
+        <optgroup label="Mode Examples"><option value="JavaScript">JavaScript</option><option value="ABAP">ABAP</option><option value="ABC">ABC</option><option value="ActionScript">ActionScript</option><option value="ADA">ADA</option><option value="Apache Conf">Apache Conf</option><option value="AsciiDoc">AsciiDoc</option><option value="Assembly x86">Assembly x86</option><option value="AutoHotKey">AutoHotKey</option><option value="BatchFile">BatchFile</option><option value="C and C++">C and C++</option><option value="C#">C#</option><option value="C9 Search Results">C9 Search Results</option><option value="Cirru">Cirru</option><option value="Clojure">Clojure</option><option value="Cobol">Cobol</option><option value="CoffeeScript">CoffeeScript</option><option value="ColdFusion">ColdFusion</option><option value="CSS">CSS</option><option value="Curly">Curly</option><option value="D">D</option><option value="Dart">Dart</option><option value="Diff">Diff</option><option value="Django">Django</option><option value="Dockerfile">Dockerfile</option><option value="Dot">Dot</option><option value="Dummy">Dummy</option><option value="DummySyntax">DummySyntax</option><option value="Eiffel">Eiffel</option><option value="EJS">EJS</option><option value="Elixir">Elixir</option><option value="Elm">Elm</option><option value="Erlang">Erlang</option><option value="Forth">Forth</option><option value="FreeMarker">FreeMarker</option><option value="Gcode">Gcode</option><option value="Gherkin">Gherkin</option><option value="Gitignore">Gitignore</option><option value="Glsl">Glsl</option><option value="Go">Go</option><option value="Gobstones">Gobstones</option><option value="Groovy">Groovy</option><option value="HAML">HAML</option><option value="Handlebars">Handlebars</option><option value="Haskell">Haskell</option><option value="haXe">haXe</option><option value="HTML">HTML</option><option value="HTML (Elixir)">HTML (Elixir)</option><option value="HTML (Ruby)">HTML (Ruby)</option><option value="INI">INI</option><option value="Io">Io</option><option value="Jack">Jack</option><option value="Jade">Jade</option><option value="Java">Java</option><option value="JSON">JSON</option><option value="JSONiq">JSONiq</option><option value="JSP">JSP</option><option value="JSX">JSX</option><option value="Julia">Julia</option><option value="LaTeX">LaTeX</option><option value="Lean">Lean</option><option value="LESS">LESS</option><option value="Liquid">Liquid</option><option value="Lisp">Lisp</option><option value="LiveScript">LiveScript</option><option value="LogiQL">LogiQL</option><option value="LSL">LSL</option><option value="Lua">Lua</option><option value="LuaPage">LuaPage</option><option value="Lucene">Lucene</option><option value="Makefile">Makefile</option><option value="Markdown">Markdown</option><option value="Mask">Mask</option><option value="MATLAB">MATLAB</option><option value="Maze">Maze</option><option value="MEL">MEL</option><option value="MUSHCode">MUSHCode</option><option value="MySQL">MySQL</option><option value="Nix">Nix</option><option value="Nix">Nix</option><option value="NSIS">NSIS</option><option value="Objective-C">Objective-C</option><option value="OCaml">OCaml</option><option value="Pascal">Pascal</option><option value="Perl">Perl</option><option value="pgSQL">pgSQL</option><option value="PHP">PHP</option><option value="Plain Text">Plain Text</option><option value="Powershell">Powershell</option><option value="Praat">Praat</option><option value="Prolog">Prolog</option><option value="Properties">Properties</option><option value="Protobuf">Protobuf</option><option value="Python">Python</option><option value="R">R</option><option value="Razor">Razor</option><option value="RDoc">RDoc</option><option value="RHTML">RHTML</option><option value="RST">RST</option><option value="Ruby">Ruby</option><option value="Rust">Rust</option><option value="SASS">SASS</option><option value="SCAD">SCAD</option><option value="Scala">Scala</option><option value="Scheme">Scheme</option><option value="SCSS">SCSS</option><option value="SH">SH</option><option value="SJS">SJS</option><option value="Smarty">Smarty</option><option value="snippets">snippets</option><option value="Soy Template">Soy Template</option><option value="Space">Space</option><option value="SQL">SQL</option><option value="SQLServer">SQLServer</option><option value="Stylus">Stylus</option><option value="SVG">SVG</option><option value="Swift">Swift</option><option value="Tcl">Tcl</option><option value="Tex">Tex</option><option value="Text">Text</option><option value="Textile">Textile</option><option value="Toml">Toml</option><option value="Twig">Twig</option><option value="Typescript">Typescript</option><option value="Vala">Vala</option><option value="VBScript">VBScript</option><option value="Velocity">Velocity</option><option value="Verilog">Verilog</option><option value="VHDL">VHDL</option><option value="Wollok">Wollok</option><option value="XML">XML</option><option value="XQuery">XQuery</option><option value="YAML">YAML</option></optgroup><optgroup label="Huge documents"><option value="src/ace.js">src/ace.js</option><option value="src-min/ace.js">src-min/ace.js</option></optgroup><optgroup label="own source"></optgroup>
+      </select>
+      
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="./src/materialize/js/materialize.min.js"></script>
+<script src="./src/materialize/js/init.js"></script>
+
+
+<script src="./src/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+  // Ace.js
+  var editor = ace.edit("editor");
+  editor.setTheme("ace/theme/monokai");
+  editor.getSession().setMode("ace/mode/javascript");
+  
+  // modal
+  $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+  });
+</script>
+</body>
+</html>
